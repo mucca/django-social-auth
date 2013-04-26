@@ -128,7 +128,8 @@ class FacebookAuth(BaseOAuth2):
                 payload = dsa_urlopen(url)
             except HTTPError, e:
                 raise AuthFailed(self, u'There was an error authenticating '
-                                       u'the app {0} {1} {2}'.format(e.read(), state, url))
+                                       u'the app {0} {1} {2} {3}'
+                                       .format(e.read(), state, url, self.request.session.keys()))
 
             response = payload.read()
             parsed_response = cgi.parse_qs(response)

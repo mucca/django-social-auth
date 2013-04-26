@@ -768,6 +768,7 @@ class BaseOAuth2(BaseOAuth):
             self.request.session.save()
         else:
             state = None
+        # SAVEMU
         state = None
 
         params = self.auth_params(state)
@@ -783,6 +784,7 @@ class BaseOAuth2(BaseOAuth):
     def validate_state(self):
         """Validate state value. Raises exception on error, returns state
         value if valid."""
+        # SAVEMU
         return None
         if not self.STATE_PARAMETER and not self.REDIRECT_STATE:
             return None
