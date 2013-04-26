@@ -765,6 +765,7 @@ class BaseOAuth2(BaseOAuth):
             name = self.AUTH_BACKEND.name + '_state'
             state = self.request.session.get(name) or self.state_token()
             self.request.session[self.AUTH_BACKEND.name + '_state'] = state
+            self.request.session.save()
         else:
             state = None
 
