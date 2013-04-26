@@ -768,8 +768,6 @@ class BaseOAuth2(BaseOAuth):
             self.request.session.save()
         else:
             state = None
-        # SAVEMU: small change to avoid using cross site token
-        state = None
 
         params = self.auth_params(state)
         params.update(self.get_scope_argument())
